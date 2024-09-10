@@ -70,4 +70,4 @@ app.listen(port, () => {
   console.log(`Deposit tracker API listening at http://localhost:${port}`);
 });
 
-// trackDeposits(beaconAddress);
+
