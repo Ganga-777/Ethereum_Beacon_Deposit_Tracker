@@ -39,12 +39,12 @@ This project is an API that tracks deposits made to the Ethereum 2.0 Beacon Chai
 
 1. Start the server:
    ```
-   node deposite.js
+   node app.js
    ```
 
 2. The API will be available at `http://localhost:3000`
 
-3. To fetch the latest deposits, send a GET request to `/deposits`
+3. To fetch the latest deposits, send a GET request to `/app`
 
 ## API Endpoints
 
