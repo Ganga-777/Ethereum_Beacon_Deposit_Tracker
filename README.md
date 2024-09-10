@@ -1,6 +1,6 @@
 
 
-# Ethereum Deposit Tracker
+# Ethereum Deposite Tracker
 
 This project is an API that tracks deposits made to the Ethereum 2.0 Beacon Chain deposit contract. It uses the Alchemy SDK to fetch transaction data and provides an endpoint to retrieve the latest 2024 deposits.
 
