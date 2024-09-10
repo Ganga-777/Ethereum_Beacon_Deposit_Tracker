@@ -1,0 +1,17 @@
+{
+  "name": "deposite-tracker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@alch/alchemy-web3": "^1.4.7",
+    "alchemy-sdk": "^3.4.1",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.2"
+  }
+}
