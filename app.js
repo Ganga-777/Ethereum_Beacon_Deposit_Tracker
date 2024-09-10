@@ -1,7 +1,7 @@
 const { Alchemy, Network, Utils } = require("alchemy-sdk");
 require('dotenv').config();
 
-// Configure Alchemy SDK
+
 const config = {
   apiKey: process.env.ALCHEMY_API_KEY,
   network: Network.ETH_MAINNET,
@@ -9,26 +9,26 @@ const config = {
 const alchemy = new Alchemy(config);
 async function trackDeposits(beaconAddress) {
   try {
-    // Get the latest block number
+    
     const latestBlock = await alchemy.core.getBlockNumber();
 
-    // Set a starting block, for example, 100 blocks before the latest
+    
     const startBlock = latestBlock - 5000;
 
-    // Convert the block numbers to hexadecimal
+    
     const fromBlockHex = Utils.hexlify(startBlock);
     const toBlockHex = Utils.hexlify(latestBlock);
     
-    // Fetch transactions for the beacon address
+    
     const { transfers } = await alchemy.core.getAssetTransfers({
-      fromBlock: fromBlockHex, // Now using a recent starting block
+      fromBlock: fromBlockHex, 
       toBlock: toBlockHex,
       toAddress: beaconAddress,
       category: ["external", "internal"],
-      maxCount: 30, // Limit the number of transactions
+      maxCount: 30, 
     });
 
-    // Process and display deposit information
+    
     let result = [];
     for (const transfer of transfers) {
       const block = await alchemy.core.getBlock(transfer.blockNum);
@@ -41,7 +41,7 @@ async function trackDeposits(beaconAddress) {
         fee: transfer.value
       });
     }
-    return result.reverse();  // Reverse to get latest transactions first
+    return result.reverse();  
 
   } catch (error) {
     console.error("Error tracking deposits:", error);
@@ -49,8 +49,7 @@ async function trackDeposits(beaconAddress) {
 }
 
 
-// Usage
-const beaconAddress = "0x00000000219ab540356cBB839Cbe05303d7705Fa"; // Ethereum 2.0 Deposit Contract
+const beaconAddress = "0x00000000219ab540356cBB839Cbe05303d7705Fa"; 
 
 const express = require('express');
 const cors = require('cors');
